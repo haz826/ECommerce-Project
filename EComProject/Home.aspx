@@ -1,4 +1,4 @@
-﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="Home.aspx.cs" Inherits="EComProject.Home" %>
+<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="Home.aspx.cs" Inherits="EComProject.Home" %>
 
 <!DOCTYPE html>
 
@@ -67,22 +67,21 @@ color:black;
             <a class="navTab" href="shopCart.aspx">Shop Cart</a><asp:ImageButton ID="ShopCart" runat="server" Height="29px" ImageUrl="https://cdn0.iconfinder.com/data/icons/shopping-cart-26/1000/Shopping-Basket-03-512.png" Width="43px" PostBackUrl="~/shopCart.aspx"/>
         </nav>
         <section>
-            <asp:DataList ID="DataList1" runat="server" CellPadding="4" DataKeyField="ProductID" DataSourceID="SqlDataSource1" ForeColor="#333333" RepeatColumns="3" RepeatDirection="Horizontal" Width="453px">
-                <AlternatingItemStyle BackColor="White" />
-                <FooterStyle BackColor="#990000" Font-Bold="True" ForeColor="White" />
-                <HeaderStyle BackColor="#990000" Font-Bold="True" ForeColor="White" />
-                <ItemStyle BackColor="#FFFBD6" ForeColor="#333333" />
+            <asp:DataList ID="DataList1" runat="server" CellPadding="4" DataKeyField="ProductID" DataSourceID="SqlDataSource1" ForeColor="Black" RepeatColumns="3" RepeatDirection="Horizontal" Width="453px" OnSelectedIndexChanged="DataList1_SelectedIndexChanged" BackColor="#CCCCCC" BorderColor="#999999" BorderStyle="Solid" BorderWidth="3px" CellSpacing="2" GridLines="Both">
+                <FooterStyle BackColor="#CCCCCC" />
+                <HeaderStyle BackColor="Black" Font-Bold="True" ForeColor="White" />
+                <ItemStyle BackColor="White" />
                 <ItemTemplate>
                     <table class="auto-style3">
                         <tr>
                             <td class="auto-style5">
-                                <asp:Label ID="Label1" runat="server" Text="Product ID: "></asp:Label>
+                                <asp:Label ID="Label1" runat="server" Text="Product ID: " Font-Bold="True"></asp:Label>
                                 <asp:Label ID="IDLbl" runat="server" Text='<%# Eval("ProductID") %>'></asp:Label>
                             </td>
                         </tr>
                         <tr>
                             <td class="auto-style5">
-                                <asp:Label ID="ProductLbl" runat="server" Text='<%# Eval("ProductName") %>'></asp:Label>
+                                <asp:Label ID="ProductLbl" runat="server" Text='<%# Eval("ProductName") %>' Font-Bold="True"></asp:Label>
                             </td>
                         </tr>
                         <tr>
@@ -93,7 +92,7 @@ color:black;
                         </tr>
                         <tr>
                             <td class="auto-style5">
-                                <asp:Image ID="ProductImg" runat="server" ImageUrl='<%# Eval("ProductImg") %>' />
+                                <asp:Image ID="ProductImg" runat="server" ImageUrl='<%# Eval("ProductImg") %>' Width="50px" />
                             </td>
                         </tr>
                         <tr>
@@ -108,9 +107,9 @@ color:black;
                     <br />
                     <br />
                 </ItemTemplate>
-                <SelectedItemStyle BackColor="#FFCC66" Font-Bold="True" ForeColor="Navy" />
+                <SelectedItemStyle BackColor="#000099" Font-Bold="True" ForeColor="White" />
             </asp:DataList>
-            <asp:SqlDataSource ID="SqlDataSource1" runat="server" ConnectionString="<%$ ConnectionStrings:ConnectionString %>" SelectCommand="SELECT * FROM [Table]"></asp:SqlDataSource>
+            <asp:SqlDataSource ID="SqlDataSource1" runat="server" ConnectionString="<%$ ConnectionStrings:ConnectionString %>" SelectCommand="SELECT * FROM [Product]"></asp:SqlDataSource>
         </section>
     </form>
 <footer> This Website is owned by its creators </footer>
